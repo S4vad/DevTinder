@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useEffect, useState } from "react";
 import { UserCard } from "./UserCard";
-import { SyncLoader  } from "react-spinners";
+import { Loader } from "../components/Loader";
 
 export const Profile = () => {
   const dispatch = useDispatch();
@@ -29,11 +29,8 @@ export const Profile = () => {
   }, [userData]);
 
   if (user.firstName === "") {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <SyncLoader color="#3B82F6" size={13}/> {/*this code for show loading befor useeffect and after intial state "" */}
-      </div>
-    );
+    return <Loader/>  
+    // {/*this code for show loading befor useeffect and after intial state "" */}
   }
 
   const handleChange = (e) => {
