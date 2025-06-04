@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
 import { Login } from "./pages/Login.jsx";
 import { Profile } from "./pages/Profile.jsx";
+import { Feed } from "./pages/Feed.jsx";
 
 axios.defaults.baseURL="http://localhost:3000"
 axios.defaults.withCredentials=true
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
+      {
+        path:'feed',
+        element:<Feed/>
+      }
     ],
   },
 ]);
