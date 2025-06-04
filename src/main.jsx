@@ -12,6 +12,8 @@ import appStore from "./utils/appStore.js";
 import { Login } from "./pages/Login.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { Feed } from "./pages/Feed.jsx";
+import { Connections } from "./pages/Connections.jsx";
+import { Request } from "./pages/Request.jsx";
 
 axios.defaults.baseURL="http://localhost:3000"
 axios.defaults.withCredentials=true
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
       {
         path:'feed',
         element:<Feed/>
+      },
+      {
+        path:'connection',
+        element:<Connections/>
+      },
+      {
+        path:'request',
+        element:<Request />
       }
     ],
   },

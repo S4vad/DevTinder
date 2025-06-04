@@ -1,11 +1,14 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeUser } from "../utils/userSlice";
 export const Navbar = () => {
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const handleLogout = async () => {
     try {
       await axios.post("/logout");
+      dispatch(removeUser())
     } catch (error) {
       console.error(error);
     }
@@ -51,6 +54,13 @@ export const Navbar = () => {
             </li>
             <li>
               <Link to="/feed">feed</Link>
+            </li>
+            <li>
+              <Link to="/request">requests</Link>
+            </li>
+
+               <li>
+              <Link to="/connection">connections</Link>
             </li>
             <li>
               <button onClick={handleLogout}>Logout</button>
